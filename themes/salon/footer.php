@@ -1,9 +1,6 @@
 <?php
 
-
-
 $phones             = get_fromDB('phoneNumbers');
-$menu               = get_menu();
 $footer_header      = get_fromDB( 'footer_block_header' );
 $footer_info_header = get_fromDB( 'footer_block_info_header' );
 $soc_net            = get_fromDB( 'social_networks' );
@@ -17,6 +14,7 @@ $menu_args = [
     'container'      => '',
     'menu_class'     => ''
 ];
+
 ?>
 
 <footer class="footerBlock" data-page-url="contacts">

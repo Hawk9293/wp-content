@@ -58,13 +58,6 @@ function get_fromDB( $table ) {
 	$columns = mysqli_fetch_all( $result, MYSQLI_ASSOC );
 	return $columns;
 }
-function get_menu() {
-	global $link;
-	$sql = "SELECT * FROM burgerMenu";
-	$result = mysqli_query($link, $sql);
-	$menu = mysqli_fetch_all( $result, MYSQLI_ASSOC );
-	return $menu;
-}
 function get_services() {
 	global $link;
 	$sql = "SELECT * FROM services";
@@ -72,13 +65,6 @@ function get_services() {
 	$services = mysqli_fetch_all( $result, MYSQLI_ASSOC );
 //	$services['table_name'] = 'services';
 	return $services;
-}
-function get_main_settings() {
-	global $link;
-	$sql = "SELECT * FROM mainSettings";
-	$result = mysqli_query($link, $sql);
-	$mainSettings = mysqli_fetch_all( $result, MYSQLI_ASSOC );
-	return $mainSettings;
 }
 function get_ab_descr() {
 	global $link;
@@ -113,27 +99,6 @@ function get_services_info () {
 	$services_info = mysqli_fetch_all( $result, MYSQLI_ASSOC );
 	return $services_info;
 }
-/*function get_services_info () {
-	global $link;
-	$sql = "SELECT s.category_thumbnail, s.category, sl.name, sl.id
-			FROM services s
-			JOIN servicesList sl
-			ON s.id = sl.category";
-	$result = mysqli_query($link, $sql);
-	$services_info = mysqli_fetch_all( $result, MYSQLI_ASSOC );
-	return $services_info;
-}*/
-
-/*function get_services_descr () {
-	global $link;
-	$sql = "SELECT si.name, si.description, si.price, si.services_list_id
-			FROM servicesInfo si
-			JOIN servicesList sl
-			ON si.services_list_id = sl.id";
-	$result = mysqli_query($link, $sql);
-	$services_info = mysqli_fetch_all( $result, MYSQLI_ASSOC );
-	return $services_info;
-}*/
 
 
 function get_tables() {
@@ -202,10 +167,10 @@ function parse_key( $key ) {
 	return $result;
 }
 
-function my_print( $value, $color = 'white', $end = 0) {
+function my_print( $value, $color = 'white', $end = 0 ) {
 	echo "<pre style='background:" . $color. "';>";
 	print_r($value);
 	echo "</pre>";
 
-	if ($end) die();
+	if ( $end ) die();
 }
