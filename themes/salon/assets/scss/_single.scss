@@ -1,0 +1,150 @@
+.singlePost {
+	font-family: 'Cambria', sans-serif;
+	font-size: 17px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+	.wrapper {
+		width: 100%;
+		max-width: initial;
+		.heroBox {
+			@include flex( center, center );
+			position: relative;
+			height: 400px;
+		    &__overlay {
+		    	background-image: url(assets/img/header-back-layer.png);
+		    	position: absolute;
+		    	width: 100%;
+		    	height: 100%;
+		    	opacity: 1;
+		    }
+		    &__header {
+		    	text-align: center;
+		        font-size: 70px;
+			    color: #fff;
+			    font-family: 'roboto';
+			    position: absolute;
+			    text-transform: uppercase;
+		    }
+		} // imgContainer
+		.content {
+			@include flex( center, center );
+			flex-direction: column;
+			//background: lightgray;
+			&__descr {
+				width: 100%;
+				background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
+				color: white;
+				padding: 25px;
+				h2 {
+					text-align: center;
+					font-size: 17px;    
+					font-family: 'roboto';
+    				font-weight: 400;	
+				}
+			} // __descr
+			&__info {
+				    padding: 30px;
+				    width: 100%;
+				    //background: white;
+				.table {
+				    display: flex;
+    				flex-direction: column;
+					.itemTable {
+						background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+						color: white;
+						margin: 2px 0;
+						display: flex;
+						width: 100%;
+						&__name {
+							padding: 10px;
+							font-size: 20px;
+							@include flex( center, center );
+							width: 70%;
+						}
+						&__price {
+							@include flex( center, center );
+							width: 30%;
+						}
+						&__additFields {
+							width: 30%;
+							.additFields {
+								display: flex;
+								flex-direction: column;
+								padding: 5px;
+								&__duration {
+									@include flex( center, center );
+									padding: 2px;
+									width: 100%;
+								}
+								&__price {
+									@include flex( center, center );
+									border: 1px solid black;
+									padding: 2px;
+									width: 100%;
+								}
+							}
+						}
+					} // itemTable
+				} // table
+			} // __info
+		} // content
+	} // wrapper
+
+
+
+	@media screen and ( max-width: 780px ){
+		.wrapper {
+			.heroBox {
+				height: 300px;
+			    &__header {
+			        font-size: 60px;
+			    }
+			} // heroBox
+			.content {
+				&__descr {
+					h2 {
+						font-size: 17px;    	
+					}
+				} // __descr
+				&__info {
+					    padding: 10px;
+					.table {
+						.itemTable {
+							&__name {
+								font-size: 18px;
+							}
+						} // itemTable
+					} // table
+				} // __info
+			} // content
+		} // wrapper
+	} // 780
+	@media screen and ( max-width: 550px ){
+		.wrapper {
+			.heroBox {
+				height: 100px;
+			    &__header {
+			        font-size: 25px;
+			    }
+			} // heroBox
+			.content {
+				&__descr {
+					h2 {
+						font-size: 14px;    	
+					}
+				} // __descr
+				&__info {
+					    padding: 5px;
+					.table {
+						.itemTable {
+							&__name {
+								font-size: 12px;
+							}
+						} // itemTable
+					} // table
+				} // __info
+			} // content
+		} // wrapper
+	} // 550
+} // single-post

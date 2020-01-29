@@ -1,0 +1,209 @@
+input, textarea, button {
+    outline:none;
+    width: 100%;
+}
+.mainContent {
+    display: flex;
+    justify-content: center;
+    .pageBlock {
+        margin: 10px;
+        background: linear-gradient(to right, rgba(169,3,41,1) 0%, rgba(143,2,34,0.83) 44%, rgba(109,0,25,0.62) 100%);
+        border-radius: 25px;
+        width: 50%;
+        padding:0 20px 20px 20px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.11);
+        &__header {
+            color: #3e0218;
+            text-transform: uppercase;
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+        } // __header
+        &__content {
+            width: 100%;
+            .itemContent {
+                list-style: none;
+                border-bottom: 1px solid rgba(169,3,41,1);
+                &:not(:first-child) {
+                    border-top: none;
+                } // not(:first-child)
+                .form {
+
+                    .tableSection {
+                        margin: 10px 0;
+                        .itemContent__header{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            background: linear-gradient(to right, rgba(255,255,255,0.62) 0%, rgba(173,0,64,1) 100%);
+                            border-radius: 15px;
+                            padding:5px 15px 5px 15px;
+                            input {
+                                color: #3e0218;
+                                text-align: left;
+                                font-weight: bold;
+                                font-size: 19px;
+                            }
+                            i {
+                                display: flex;
+                                align-items: center;
+                                font-size: 18px;
+                            }
+                        } // __header
+                    } // tableSection
+                    .dropDown {
+                        border-radius: 15px;
+                        display: none;
+                        position: relative;
+                        width: 100%;
+                        padding: 20px 20px 0 20px;
+                        margin-bottom: 10px;
+                        .success {
+                            height: 100%;
+                            position: absolute;
+                            width: 100%;
+                            top: 0;
+                            left: 50%;
+                            text-align: center;
+                            line-height: 100%;
+                            transform: translateX(-50%);
+                            border-radius: 15px;
+                            background: linear-gradient(to right, rgba(191,255,82,0.6) 0%, rgba(128,231,64,0.6) 100%);
+                            &__header {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100%;
+                                color: black;
+                                font-size: 30px;
+                                font-weight: bold;
+                            }
+                        }
+                        .tableSection {
+                            .dropDown__descr {
+                                width: 100%;
+                                text-align: center;
+                                textarea {
+                                    height: 125px;
+                                    resize: none;
+                                    width: 100%;
+                                    padding: 10px;
+                                    margin-bottom: 10px;
+                                } // textarea
+                            } // dropDown__descr   
+                            .innerContent {
+                                width: 100%;
+                                &__row {
+                                    display: flex;
+                                    justify-content: center;
+                                    width: 100%;
+                                    background: linear-gradient(to right, rgba(173,0,64,1) 0%, rgba(252,234,252,0.62) 100%);
+                                    &:nth-child(even){
+                                        background: linear-gradient(to right, rgba(252,234,252,0.62) 0%, rgba(173,0,64,1) 100%);
+                                        .innerContent__name{
+                                            input{
+                                                color: #3e0218;
+                                            } // input
+                                        } // innerContent__name
+                                        .innerContent__price{
+                                            input{
+                                                color: white;
+                                            } // input
+                                        } // innerContent__price
+                                    } // :nth-child(even)
+                                    &:first-child{
+                                        border-radius: 5px 5px 0 0;
+                                    } // :nth-child(even)
+                                    &:last-child{
+                                        border-radius: 0 0 5px 5px;
+                                    } // :nth-child(even)
+                                } //__row
+                                &__name {
+                                    padding: 5px 0;
+                                    width: 100%;
+                                    input {
+                                        border-radius: 5px;
+                                        padding: 0 5px;
+                                        color: white;
+                                        width: 100%;
+                                        text-align: left;
+                                    } // input
+                                } // __name
+                                &__price {
+                                    padding: 5px 0;
+                                    input {
+                                        border-radius: 5px;
+                                        padding: 0 5px;
+                                        color: #3e0218;
+                                        text-align: center;
+                                        width: 100px;
+                                    } // input
+                                } // __price
+                            } // innerContent
+                        } // tableSection
+                        .tableSection { 
+                            .innerContent {
+                                width: 100%;
+                                &__row {
+                                    display: flex;
+                                    justify-content: center;
+                                    width: 100%;
+                                    background: linear-gradient(to right, rgba(173,0,64,1) 0%, rgba(252,234,252,0.62) 100%);
+                                    &:nth-child(even){
+                                        background: linear-gradient(to right, rgba(252,234,252,0.62) 0%, rgba(173,0,64,1) 100%);
+                                        .innerContent__name{
+                                            input{
+                                                color: #3e0218;
+                                            } // input
+                                        } // innerContent__name
+                                        .innerContent__price{
+                                            input{
+                                                color: white;
+                                            } // input
+                                        } // innerContent__price
+                                    } // :nth-child(even)
+                                    &:first-child{
+                                        border-radius: 5px 5px 0 0;
+                                    } // :nth-child(even)
+                                    &:last-child{
+                                        border-radius: 0 0 5px 5px;
+                                    } // :nth-child(even)
+                                } //__row
+                                &__name {
+                                    padding: 5px 0;
+                                    width: 100%;
+                                    input {
+                                        border-radius: 5px;
+                                        padding: 0 5px;
+                                        color: white;
+                                        width: 100%;
+                                        text-align: left;
+                                    } // input
+                                } // __name
+                                &__price {
+                                    padding: 5px 0;
+                                    input {
+                                        border-radius: 5px;
+                                        padding: 0 5px;
+                                        color: #3e0218;
+                                        text-align: center;
+                                        width: 100px;
+                                    } // input
+                                } // __price
+                            } // innerContent
+                        } // tableSection
+                    } // dropDown
+                    .submitBtn {
+                        color: white;
+                        margin: 10px 0;
+                        border-radius: 5px;
+                        padding: 5px;
+                        background: rgba(169,3,41,1);
+                        width: 100px;
+                    } // submitBtn
+                } // form 
+            } // itemContent
+        } // __content
+    } // pageBlock
+} // mainContent

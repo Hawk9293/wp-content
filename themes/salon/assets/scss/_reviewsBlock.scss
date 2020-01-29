@@ -1,0 +1,237 @@
+body {
+  
+} // body
+.bottomlinebrown{
+  width: 100%;
+  height: 41px;
+  background-repeat: repeat-x;  
+  transform: rotate(180deg);
+  &-down {
+    transform: rotate(0deg);
+  } // -down
+}
+.reviewsBlock {
+  font-family: "Cambria";
+  background: $firstColor; 
+  .wrapper {
+    .reviews {
+      .servicesHeader {
+        @include flex(center,center);
+        padding: 60px 0 70px;
+        color: white;
+        flex-direction: column;
+        width: 100%;
+        .sectionSubtitle {
+          font-weight: normal;
+          font-style: italic;
+          margin: 20px 0;
+          font-size: 18px;
+          span {
+            color: $secondColor;
+          } // span
+          } // sectionSubtitle
+        .sectionTitle {
+          @include flex(center,center);
+          font-weight: normal;
+          font-size: 46px;
+          width: 100%;
+          span {
+            font-weight: normal;
+            color: $secondColor;
+          } // span
+          &:before {
+            margin: 0 25px;
+            content: " ";
+            width: 100%;
+            height: 2px;
+            background: $secondColor; 
+          } // :before
+          &:after {
+            margin: 0 25px;
+            content: " ";
+            width: 100%;
+            height: 2px;
+            background: $secondColor; 
+          } // :after
+        } // .sectionTitle
+      } // servicesHeader
+      .reviewsContainer {
+        @include flex(center,center);
+        &-reverse {
+          flex-direction: row-reverse;
+          .reviewsContainer__item-text {
+            @include flex(center, flex-end);
+            .text {
+              text-align: end;
+            } // text
+          } // reviewsContainer__item-text
+        } // -reverse
+        &__item {
+          @include flex(center,center);
+          height: 280px;
+          width: 50%;
+          &-text {
+            flex-direction: column;
+            @include flex(center, flex-start);
+          } // -text
+          .name {
+            h2 {
+              font-size: 21px;
+              font-weight: normal;
+              color: white;
+              margin-bottom: 6px;
+            } // h2
+          } // name
+          .age {
+            font-size: 16px;
+            width: 50px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid black; 
+          } // age
+          .text {
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+          } // text
+          &__item {
+            position: relative;
+          } // __item
+          .imgLayer {
+            width: 280px;
+            height: 280px;
+            position: absolute;
+            clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+            &-first {
+              background: #B08035;
+              transform: rotate(15deg);
+            } // -first
+            &-reverse {
+              background: #C39849;
+              transform: rotate(30deg);
+            } // -reverse
+            &-third {
+              background: #D6B67B;
+              transform: rotate(45deg);
+            } // -third
+            &-fourth {
+              transform: rotate(0deg);
+              img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+              } // img
+            } // -fourth
+          } // imgLayer
+        } // __item
+      } // reviewsContainer
+    } // reviews
+  } // wrapper
+
+@media screen and (max-width: 750px) {
+  .wrapper {
+    .reviews {
+      .reviewsContainer {
+        @include flex(center,center);
+        &-reverse {
+          flex-direction: row-reverse;
+          .reviewsContainer__item-text {
+            @include flex(center, flex-end);
+            .text {
+              text-align: end;
+            } // text
+          } // reviewsContainer__item-text
+        } // -reverse
+        &__item {
+          @include flex(center);
+          margin: 20px 0;
+          width: 50%;
+          padding: 30px;
+          .age {
+            margin-bottom: 15px;
+            border-bottom: 1px solid black; 
+          } // age
+          .imgLayer {
+            width: 240px;
+            height: 240px;
+            position: absolute;
+            clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+            &-first {
+              background: #B08035;
+              transform: rotate(15deg);
+            } // -first
+            &-reverse {
+              background: #C39849;
+              transform: rotate(30deg);
+            } // -reverse
+            &-third {
+              background: #D6B67B;
+              transform: rotate(45deg);
+            } // -third
+            &-fourth {
+              transform: rotate(0deg);
+            } // -fourth
+          } // imgLayer
+        } // __item
+      } // reviewsContainer
+    } // reviews
+  } // wrapper
+}
+
+    @media screen and (max-width: 500px) {
+    .wrapper {
+      .reviews {
+        .servicesHeader {
+          padding: 0;
+          .sectionSubtitle {
+            font-size: 14px;
+            } // sectionSubtitle
+          .sectionTitle {
+            font-size: 35px;
+          } // .sectionTitle
+        } // servicesHeader
+        .reviewsContainer {
+          &__item {
+            @include flex(center,center);
+            margin: 0;
+            padding: 10px;
+            .imgLayer {
+              width: 160px;
+              height: 160px;
+            } // imgLayer
+          } // __item
+        } // reviewsContainer
+      } // reviews
+    } // wrapper
+  } // 500
+  @media screen and (max-width: 420px) {
+    .wrapper {
+      .reviews {
+        .servicesHeader {
+          .sectionSubtitle {
+            font-size: 11px;
+            margin: 15px 0 5px;
+            span {
+              font-size: 11px;
+            }
+            } // sectionSubtitle
+          .sectionTitle {
+            font-size: 30px;
+          } // .sectionTitle
+        } // servicesHeader
+      } // reviews
+    } // wrapper
+  } // 420
+} // reviewsBlock
+
+
+
+
+
+
+
+
+
+
+
+
+

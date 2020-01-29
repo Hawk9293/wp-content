@@ -1,0 +1,43 @@
+.adminBlock {
+	background: transparent;
+	.wrapper {
+		.fromBd {
+			background: white;
+			border-radius: 5px;
+			margin: 20px 0;
+			padding: 10px;
+			.tableBd {
+				border: 1px solid gray;
+				padding: 5px;
+				width: 100%;
+				&__header {
+					background: #FC6665;
+					border-radius: 10px;
+					width: auto;
+					padding: 5px;
+					color: black;
+					border: 1px solid gray;
+					margin: 5px; 
+				}
+				tr {
+					th {
+						border: 1px solid gray;
+					}
+					td {
+						height: 100%;
+						input {
+							width: 100%;
+							text-align: center; 
+						}
+						textarea {
+							resize: none;
+							height: 100%;
+							text-align: center; 
+							width: 100%;
+						}
+					}
+				}
+			}
+		} // fromBd
+	} // wrapper
+} // adminBlock

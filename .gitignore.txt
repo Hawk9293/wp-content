@@ -1,0 +1,7 @@
+languages/
+plugins/
+upgrade/
+index.php
+themes/salon/.idea/
+themes/salon/acf-options-page/
+themes/salon/acf-repeater/
