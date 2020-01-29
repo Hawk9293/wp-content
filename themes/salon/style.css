@@ -4209,6 +4209,7 @@ body {
   justify-content: center;
   align-items: center; }
   .certificatesBlock .wrapper .certificates {
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -4222,12 +4223,12 @@ body {
         font-size: 18px;
         color: #98783c; }
     .certificatesBlock .wrapper .certificates .certificatesContent {
+      height: 500px;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 0 5%;
-      width: 100%;
-      height: auto; }
+      width: 100%; }
       .certificatesBlock .wrapper .certificates .certificatesContent__images {
         display: flex;
         justify-content: center;
@@ -4304,24 +4305,27 @@ body {
         .certificatesBlock .wrapper .certificates .servicesHeader .sectionTitle {
           font-size: 26px; }
       .certificatesBlock .wrapper .certificates .certificatesContent {
+        height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 15px; }
         .certificatesBlock .wrapper .certificates .certificatesContent__images {
-          height: auto;
+          height: 300px;
           padding: 15px;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap; }
           .certificatesBlock .wrapper .certificates .certificatesContent__images .image {
-            height: auto;
+            height: 100%;
             width: 30%;
             margin: 2%;
             display: flex;
             justify-content: center;
-            align-items: center; } }
+            align-items: center; }
+            .certificatesBlock .wrapper .certificates .certificatesContent__images .image img {
+              height: 100%; } }
 
 input, button {
   border: none;

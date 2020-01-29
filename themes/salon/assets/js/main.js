@@ -49,7 +49,7 @@ jQuery(function ($) {
         dots: true,
         responsive: [
             {
-              breakpoint: 1024,
+              breakpoint: 1280,
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
