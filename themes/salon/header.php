@@ -13,12 +13,14 @@ $colors = [
 	'first' => get_field('first_color', 'option'),
 	'second' => get_field('second_color', 'option')
 ];
+$background = get_field('main_background','option');
 //my_print($colors,'white');
 
 ?>
 <!doctype html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -28,6 +30,10 @@ $colors = [
 	<?php wp_head()?>
 
     <style>
+        body{
+            background-image: url( <?php echo $background ?> )
+        }
+
         .headerContacts__item .fas {
             color: <?php echo $colors['first']?>;
         }
