@@ -59,8 +59,6 @@ add_action('wp_ajax_nopriv_send_mail', 'send_email');
 function send_email() {
 	$data = $_POST['mail_data'];
 
-
-
 	echo json_encode($data);
 	wp_die();
 }

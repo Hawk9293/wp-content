@@ -1,21 +1,12 @@
 "use strict";
 jQuery(function ($) {
 
-
-
     new WOW().init();
 
     const input = $('.userForm__input');
     const inputValues = [];
 
     let burger = new Burger('.nav');
-
-    $('textarea').each(function () {
-        this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow:hidden;');
-    }).on('input', function () {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
-    });
 
     $('.project__title').click(function () {
         $('body').css({'overflow': 'hidden'});
@@ -32,7 +23,6 @@ jQuery(function ($) {
 
     $('.menu').click(function () {
         burger.toggleBurger();
-        console.log(this);
     });
 
     $('.nav__link').click(function () {
@@ -79,17 +69,6 @@ jQuery(function ($) {
       ]
     });
 
-    $('.itemContent__header').click(function (e) {
-        $(this).closest('.dropDown').slideToggle();
-        //e.stopPropagation();
-        console.log('open');
-    });
-
-    $('.innerContent__row').click(function (e) {
-        e.stopPropagation();
-        console.log('click row');
-    })
-
     $( window ).on('scroll', function () {
         const headerBlock = $('.headerBlock');
         const pageTop = $(window).scrollTop();
@@ -107,55 +86,47 @@ jQuery(function ($) {
 
 
     $('.userForm__submitBtn').click(function( e ) {
-
         e.preventDefault();
-
+        clearError(input);
         const myArr = [];
-
         const mailData = {
             userName: 'Dima',
             userPhone: '1323435345'
         };
 
-        sendMail( 'Привет' );
-
-        clearError(input);
-
-        for (let i = 0; i < input.length; i++) {
+        for ( let i = 0; i < input.length; i++ ) { // проверка на пустоту
             let currVal = input[i].value;
-            if (!currVal) {
-                errorMessage(input[i]);
+            if ( !currVal ) {
+                errorMessage( input[i] );
             } else {
                 myArr.push(currVal);
             }
         }
-        if (input.length == myArr.length) {
+        if ( input.length == myArr.length ) { // проверка на заполнение всех полей
             inputValues.push(myArr);
-
+            sendMail( inputValues );
             clearForm();
             successBlock();
-
         } else {
             console.log('form is invalid')
         }
-        console.log(inputValues);
     });
 
 
 //////////////////////////////////////_____FUNCTIONS_____///////////////////////////////////////////////////
     function errorMessage(currInput) {
         currInput.classList.add('userForm__input-error');
-    };
+    }; // errorMessage - сообщение об ошибке в форме
     function clearError(input) {
         for (let i = 0; i < input.length; i++) {
             input[i].classList.remove('userForm__input-error');
         }
-    };
+    }; // clearError - очищает ошибки в форме
     function clearForm() {
         for (let i = 0; i < input.length; i++) {
             input[i].value = '';
         }
-    };
+    }; // clearError - очищает введённые данные из формы
     function successBlock() {
         let contactUsBlock = $('.contactUsBlock');
         let success = $('.success');
@@ -176,7 +147,7 @@ jQuery(function ($) {
         successClose.onclick = function () {
             success.remove();
         }
-    };
+    }; // successBlock - сообщение об удачной отправке
     function Burger(burger) {
         this.burger = burger;
 
@@ -197,11 +168,7 @@ jQuery(function ($) {
 
         return false;
     } // scrollTo - кролл к выбраной странице через меню
-
     function sendMail( data ) {
-
-        console.log(myAjax);
-
         $.post(
             myAjax.ajaxUrl,
             {
@@ -209,7 +176,6 @@ jQuery(function ($) {
                 mail_data: data
             },
             function (response) {
-                // console.log(response);
                 let data = $.parseJSON(response);
                 console.log(data);
             });

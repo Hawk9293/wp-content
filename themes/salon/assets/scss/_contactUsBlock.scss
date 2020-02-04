@@ -125,13 +125,12 @@ input, button {
 					flex-wrap: wrap;
 					&__label {
 						@include flex(center,center);
-						border: 2px solid white;
 						margin: 10px;
 						width: 20%;
 					} // __label
 					&__input {
 						@include flex(center,center);
-						font-size: 18px;
+						font-size: 16px;
 						margin: 5px;
 						width: 100%;
 						color: white;
@@ -183,13 +182,12 @@ input, button {
 					flex-wrap: wrap;
 					&__label {
 						@include flex(center,center);
-						border: 2px solid white;
 						margin: 10px;
 						width: 45%;
 					} // __label
 					&__input {
 						@include flex(center,center);
-						font-size: 18px;
+						font-size: 14px;
 						margin: 5px;
 						width: 100%;
 						color: white;
