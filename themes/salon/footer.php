@@ -1,13 +1,17 @@
 <?php
+$header = get_field('footer_header', 'option');
+$subheader = get_field('footer_subheader', 'option');
 
-$phones             = get_fromDB('phoneNumbers');
-$footer_header      = get_fromDB( 'footer_block_header' );
-$footer_info_header = get_fromDB( 'footer_block_info_header' );
-$soc_net            = get_fromDB( 'social_networks' );
-$copyright          = get_fromDB( 'copyright' );
+$nav_header = get_field('footer_nav_header', 'option');
+$soc_header = get_field('footer_soc_header', 'option');
+$info_header = get_field('footer_info_header', 'option');
 
+$logo = get_field('footer_logo', 'option');
 $social_networks = get_field('social', 'option');
 $phones = get_field('phones', 'option');
+$mail = get_field('footer_mail', 'option');
+$communication = get_field('footer_skype', 'option');
+$copyright = get_field('footer_copyright', 'option');
 
 $menu_args = [
     'theme_location' => 'primary',
@@ -21,10 +25,10 @@ $menu_args = [
     <div class="map">
         <div class="servicesHeader animate fadeIn wow" data-wow-delay=".1s">
             <h2 class="sectionTitle">
-                <?php echo $footer_header[0]['main_header']; ?>
+                <?php echo $header; ?>
             </h2>
             <h3 class="sectionSubtitle">
-                <?php echo $footer_header[0]['sub_header']; ?>
+                <?php echo $subheader; ?>
             </h3>
         </div>
         <div class="map__google">
@@ -34,19 +38,17 @@ $menu_args = [
     <div class="wrapper">
         <div class="footer">
             <div class="footer__logo animate bounceInUp wow" data-wow-delay=".1s">
-                <p>
-                    <?php echo $footer_info_header[0]['main_header'] ?>
-                </p>
+                <img src="<?php echo $logo; ?>" alt="">
             </div>
             <div class="footer__info animate bounceInUp wow" data-wow-delay=".2s">
                 <h3>
-                    <?php echo $footer_info_header[1]['main_header'] ?>
+                    <?php echo $nav_header; ?>
                 </h3>
                 <?php wp_nav_menu( $menu_args );?>
             </div>
             <div class="footer__hrefs animate bounceInUp wow" data-wow-delay=".3s">
                 <h3>
-                    <?php echo $footer_info_header[2]['main_header'] ?>
+                    <?php echo $soc_header; ?>
                 </h3>
                 <ul>
                     <?php foreach( $social_networks as $social_network ): ?>
@@ -60,7 +62,7 @@ $menu_args = [
             </div>
             <div class="footer__contacts animate bounceInUp wow" data-wow-delay=".4s">
                 <h3>
-                    <?php echo $footer_info_header[3]['main_header'] ?>
+                    <?php echo $info_header; ?>
                 </h3>
                 <div class="numbers">
                     <?php foreach ( $phones as $number ):?>
@@ -70,17 +72,16 @@ $menu_args = [
                     <?php endforeach;?>
                 </div>
                 <div class="other">
-                    <p><i class="fas fa-envelope"></i>info@bellavita.kiev.ua</p>
-                    <p><i class="fab fa-skype"></i>BellaVita</p>
+                    <p><i class="fas fa-envelope"></i><?php echo $mail; ?></p>
+                    <p><i class="fab fa-skype"></i><?php echo $communication; ?></p>
                 </div>
             </div>
         </div>
     </div>
     <div class="copyright">
-        <?php echo $copyright[0]['copyright']; ?>
+        <?php echo $copyright; ?>
     </div>
 </footer>
-
 <?php wp_footer();?>
 </body>
 </html>

@@ -1,9 +1,11 @@
+"use strict";
 jQuery(function ($) {
+
+
 
     new WOW().init();
 
     const input = $('.userForm__input');
-    const submit = $('.userForm__submitBtn');
     const inputValues = [];
 
     let burger = new Burger('.nav');
@@ -103,10 +105,19 @@ jQuery(function ($) {
         // })
     });
 
-    submit.onclick = function (e) {
+
+    $('.userForm__submitBtn').click(function( e ) {
+
         e.preventDefault();
 
         const myArr = [];
+
+        const mailData = {
+            userName: 'Dima',
+            userPhone: '1323435345'
+        };
+
+        sendMail( 'Привет' );
 
         clearError(input);
 
@@ -128,7 +139,8 @@ jQuery(function ($) {
             console.log('form is invalid')
         }
         console.log(inputValues);
-    }
+    });
+
 
 //////////////////////////////////////_____FUNCTIONS_____///////////////////////////////////////////////////
     function errorMessage(currInput) {
@@ -185,4 +197,21 @@ jQuery(function ($) {
 
         return false;
     } // scrollTo - кролл к выбраной странице через меню
+
+    function sendMail( data ) {
+
+        console.log(myAjax);
+
+        $.post(
+            myAjax.ajaxUrl,
+            {
+                action: 'send_mail',
+                mail_data: data
+            },
+            function (response) {
+                // console.log(response);
+                let data = $.parseJSON(response);
+                console.log(data);
+            });
+    }
 });

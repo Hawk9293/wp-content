@@ -1,4 +1,4 @@
-.doubleroundlinebrown{
+.doubleroundlinebrown {
   width: 100%;
   height: 41px;
   background: url(assets/img/doubleroundlinebrown.png);
@@ -37,14 +37,14 @@
               content: " ";
               width: 100%;
               height: 2px;
-              background: $firstColor; 
+              background: $firstColor;
             } // :before
             &:after {
               margin: 0 25px;
               content: " ";
               width: 100%;
               height: 2px;
-              background: $firstColor; 
+              background: $firstColor;
             } // :after
           } // .sectionTitle
         } // servicesHeader
@@ -73,6 +73,7 @@
             background: blue;
           } // __header
           &__img {
+            box-shadow: 10px 10px 12px 0px rgba(0,0,0,0.75);
             z-index: 2;
             position: relative;
             margin: 50px 0;
@@ -93,11 +94,17 @@
               height: 300px;
             } // -imgSmall
             .discription {
+              border-radius: 50%;
+              padding: 30px;
+              background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(254,254,254,0.1) 100%);
+              box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.75);
               width: auto;
+              z-index: 500;
               position: absolute;
-              left: 330px;
-              top: 85%;
+              left: 40%;
+              top: 70%;
               &__header {
+                text-align: center;
                 width: 100%;
                 font-size: 40px;
                 padding-bottom:10px;
@@ -108,6 +115,7 @@
                 color: $firstColor;
                 font-size: 12px;
                 li {
+                  list-style-position: inside;
                   padding-bottom: 10px;
                 }
               } // __info
@@ -183,9 +191,6 @@
               width: 280px;
               height: 280px;
             } // -imgSmall
-            .text {
-              top: -100px;
-            } // text
             .discription {
               &__header {
                 top: -60%;
@@ -193,6 +198,7 @@
                 padding-bottom: 0;
               } // __header
               &__info {
+                font-size: 11px;
                 li {
                   padding-bottom: 10px;
                 }
@@ -218,12 +224,14 @@
               height: 260px;
             } // -imgSmall
             .discription {
-              width: 6vw;
               &__header {
                 top: -60%;
                 font-size: 25px;
                 padding-bottom: 0;
               } // __header
+              &__info {
+                font-size: 10px;
+              }
             } // text
           } // __img
           .imgLine {
@@ -268,10 +276,8 @@
               height: 240px;
             } // -imgSmall
             .discription {
-              width: 6vw;
-              left: 75%;
+              padding: 25px;
               &__header {
-                top: -60%;
                 font-size: 25px;
                 padding-bottom: 0;
               } // __header
@@ -332,30 +338,15 @@
               }
             } // text
             .discription {
-              display: flex;
-              justify-content: center;
-              width: 100%;
               height: auto;
               position: absolute;
-              left: 30%;
-              top: 115%;
+              left: 10%;
+              top: 70%;
               &__header {
-                text-align: center;
-                position: absolute;
                 width: 100%;
-                left: -30%;
-                top: -60px;
-                font-size: 40px;
-                padding-bottom:10px;
+                padding-bottom: 5px;
               } // __header
               &__info {
-                width: 100%;
-                position: absolute;
-                left: 0;
-                top: 0;
-                font-family: Open-Sans,sans-serif;
-                color: $firstColor;
-                font-size: 12px;
                 li {
                   width: 100%;
                   padding-bottom: 10px;
@@ -454,8 +445,9 @@
             background: blue;
           } // __header
           &__img {
+            box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.75);
             position: relative;
-            margin: 100px 0;
+            margin: 70px 0;
             height: 150px;
             width: 150px;
             border-radius: 50%;
@@ -477,33 +469,23 @@
               }
             } // text
             .discription {
-              display: flex;
-              justify-content: center;
-              width: 100%;
+              padding: 20px;
               height: auto;
               position: absolute;
-              left: 20%;
-              top: 115%;
+              left: 0%;
+              top: 90%;
               &__header {
                 text-align: center;
-                position: absolute;
                 width: 100%;
-                left: -30%;
-                top: -35px;
-                font-size: 25px;
-                padding-bottom:10px;
+                font-size: 20px;
+                padding-bottom: 5px;
               } // __header
               &__info {
-                width: 100%;
-                position: absolute;
-                left: 0;
-                top: 0;
-                font-family: Open-Sans,sans-serif;
-                color: $firstColor;
-                font-size: 12px;
+                font-size: 8px;
                 li {
+                  list-style: none;
                   width: 100%;
-                  padding-bottom: 10px;
+                  padding-bottom: 5px;
                 }
               } // __info
             } // text
@@ -546,36 +528,23 @@
       .afterBefore {
         .abItem {
           &__img {
+            margin: 50px 0;
             &-imgSmall {
             } // -imgSmall
             .discription {
-              top: 120%;
+              top: 90%;
               &__header {
-                text-align: center;
-                position: absolute;
-                width: 100%;
-                left: -30%;
-                top: -35px;
-                font-size: 20px;
-                padding-bottom:10px;
+                font-size: 12px;
+                padding-bottom:2px;
               } // __header
               &__info {
-                width: 100%;
-                position: absolute;
-                left: 0;
-                top: 0;
-                font-family: Open-Sans,sans-serif;
-                color: $firstColor;
-                font-size: 10px;
+                font-size: 8px;
                 li {
                   width: 100%;
-                  padding-bottom: 10px;
+                  padding-bottom: 2px;
                 }
               } // __info
             } // discription
-            .text-after {
-              top: -660px;
-            } // text-after
           } // __img
           .imgLine {
             &::before {
@@ -647,7 +616,7 @@
             &-imgSmall {
             } // -imgSmall
             .discription {
-              top: 120%;
+              top: 80%;
               &__header {
                 top: -40px;
                 font-size: 20px;
@@ -665,7 +634,7 @@
             } // -after
           }
         } // __img
-                  .imgLine {
+          .imgLine {
             &::before {
               content: '';
               position: absolute;

@@ -1,6 +1,7 @@
 <?php
 
-$revHeader = get_fromDB('reviewsBlockHeader');
+$header = get_field('reviews_header', 'option');
+$subHeader = get_field('reviews_subheader', 'option');
 
 $args = array(
     'post_type'   => 'review',
@@ -17,8 +18,8 @@ $reviews_posts = get_posts( $args );
     <div class="wrapper">
         <div class="reviews">
             <div class="servicesHeader animate fadeIn wow" data-wow-delay=".1s">
-                <h3 class="sectionSubtitle"><?php echo $revHeader[0]['sub_header']; ?></h3>
-                <h2 class="sectionTitle"><?php echo $revHeader[0]['header']; ?></h2>
+                <h3 class="sectionSubtitle"><?php echo $subHeader; ?></h3>
+                <h2 class="sectionTitle"><?php echo $header; ?></h2>
             </div>
             <?php foreach( $reviews_posts as $index => $review):
                 $id = $review -> ID;

@@ -6,21 +6,16 @@ $args = array(
     'order'       => 'ASC'
 );
 
+$header = get_field('ab_header','option');
 $ab_posts = get_posts( $args );
 
 $ab_post_sort = [];
-
 foreach( $ab_posts as $ab_post ) {
 	$id = $ab_post -> ID;
 	$order = get_field('post_id', $id);
 	$ab_post_sort[$order] = $id;
 }
-
 ksort($ab_post_sort);
-//var_dump( $ab_post_sort );
-//
-//
-//wp_die();
 ?>
 
 <section class="afterBeforeBlock" data-page-url="before_after">
@@ -28,7 +23,7 @@ ksort($ab_post_sort);
     <div class="wrapper">
         <div class="servicesHeader animate fadeIn wow" data-wow-delay=".1s">
             <h2 class="sectionTitle">
-                <?php echo $ab_header[0]['header'] ?>
+                <?php echo $header; ?>
             </h2>
         </div>
         <div class="afterBefore">

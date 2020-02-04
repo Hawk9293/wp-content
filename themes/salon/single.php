@@ -8,9 +8,6 @@ $description = get_field('service_description');
 $addit_field_on = get_field('service_additional_fields_on');
 $thumb = get_the_post_thumbnail_url( $id );
 
-echo $id;
-my_print( $service_info, 'white', 1 );
-
 ?>
 
 <?php get_header();?>
