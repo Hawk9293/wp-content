@@ -16,13 +16,16 @@ $header = get_field('contact_us_header', 'option');
 	        <?php $mail_php = get_permalink(107);?>
             <form action="<?php echo $mail_php?>" class="userForm">
                 <label class="userForm__label">
-                    <input type="text" class="userForm__input" name="userName" placeholder="Ваше имя...">
+                    <input type="text" class="userForm__input" name="user-name" placeholder="Ваше имя...">
                 </label>
                 <label class="userForm__label">
-                    <input type="text" class="userForm__input" name="userNumber" placeholder="Ваш телефон...">
+                    <input type="text" class="userForm__input" name="user-number" placeholder="Ваш телефон...">
                 </label>
                 <label class="userForm__label">
-                    <input type="text" class="userForm__input" name="userEmail" placeholder="Ваш E-mail...">
+                    <input type="text" class="userForm__input" name="user-email" placeholder="Ваш E-mail...">
+                </label>
+                <label class="userForm__label">
+                    <textarea class="text"></textarea>
                 </label>
                 <label class="userForm__label">
                     <button type="submit" class="userForm__submitBtn" id="submitBtn">ОТПРАВИТЬ</button>

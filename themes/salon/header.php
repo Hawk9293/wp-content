@@ -94,13 +94,14 @@ $background = get_field('main_background','option');
         .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle span {
             color: <?php echo $colors['second']?>;
         }
-
-
-        .secondColor {
+        .afterBeforeBlock .afterBefore .abItem__img .discription__header {
             color: <?php echo $colors['second']?>;
         }
-        .secondColorBackground {
-            background-color: <?php echo $colors['second']?>;
+        .afterBeforeBlock .afterBefore .abItem .text__header {
+            color: <?php echo $colors['second']?>;
+        }
+        .afterBeforeBlock .wrapper .servicesHeader .sectionTitle {
+            color: <?php echo $colors['second']?>;
         }
     </style>
 

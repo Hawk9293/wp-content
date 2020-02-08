@@ -32,13 +32,13 @@ jQuery(function ($) {
     });
 
     $('.certificatesContent__images').slick({
+        arrows: false,
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 4,
-        adaptiveHeight: true,
-        ///autoplay: true,
-        //autoplaySpeed: 6000,
-        dots: true,
+        //adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
         responsive: [
             {
               breakpoint: 1280,
@@ -46,7 +46,6 @@ jQuery(function ($) {
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 infinite: true,
-                dots: true
               }
             },
             {
@@ -88,28 +87,26 @@ jQuery(function ($) {
     $('.userForm__submitBtn').click(function( e ) {
         e.preventDefault();
         clearError(input);
-        const myArr = [];
-        const mailData = {
-            userName: 'Dima',
-            userPhone: '1323435345'
-        };
+        const myArr = {};
 
         for ( let i = 0; i < input.length; i++ ) { // проверка на пустоту
             let currVal = input[i].value;
+            let currAttr = $(input[i]).attr('name');
             if ( !currVal ) {
                 errorMessage( input[i] );
             } else {
-                myArr.push(currVal);
+                myArr[currAttr] = currVal;
             }
         }
-        if ( input.length == myArr.length ) { // проверка на заполнение всех полей
-            inputValues.push(myArr);
-            sendMail( inputValues );
-            clearForm();
-            successBlock();
-        } else {
-            console.log('form is invalid')
-        }
+        sendMail( myArr );
+        // if ( input.length == myArr.length ) { // проверка на заполнение всех полей
+        //     inputValues.push(myArr);
+        //     sendMail( inputValues );
+        //     clearForm();
+        //     successBlock();
+        // } else {
+        //     console.log('form is invalid')
+        // }
     });
 
 

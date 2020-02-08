@@ -12,24 +12,6 @@ global$bodyOverlay;
 $header = get_field('certificates_header', 'option');
 $subHeader = get_field('certificates_subheader', 'option');
 
-//my_print($certificatesGallery, 'white',1);
-/*foreach ($certificates as $certificatesPost){
-    $id = $certificatesPost -> ID;
-    $images = get_field('certificates_gallery', $id);
-    if( $images ): */?><!--
-        <ul>
-            <?php /*foreach( $images as $image ): */?>
-                <li>
-                    <a href="<?php /*echo $image['url']; */?>">
-                        <img src="<?php /*echo $image['sizes']['thumbnail']; */?>" alt="<?php /*echo $image['alt']; */?>" />
-                    </a>
-                    <p><?php /*echo $image['caption']; */?></p>
-                </li>
-            <?php /*endforeach; */?>
-        </ul>
-    --><?php /*endif;
-}*/
-
 $setting = [
         'bg' => 0,
         'color' => 'red'
@@ -57,13 +39,13 @@ $setting = [
             <div class="certificatesContent">
                 <?php foreach ( $certificates as $my_post ):
                     $id = $my_post -> ID;
-                    $images = get_field('certificates_gallery', $id);
-                    my_print($images,'white');
+                    $imagesId = get_field('certificates_gallery', $id);
+                    $imagesIdExploded = explode(",", $imagesId);
                     ?>
                     <div class="certificatesContent__images">
-                        <?php foreach ( $images as $image_id ): ?>
+                        <?php foreach ( $imagesIdExploded as $imageId ): ?>
                             <div class="image">
-                                <?php echo wp_get_attachment_image( $image_id, 'full' ); ?>
+                                <?php echo wp_get_attachment_image( $imageId, 'full' ); ?>
                             </div>
                         <?php endforeach; ?>
                     </div>

@@ -90,6 +90,7 @@ body {
             border-bottom: 2px solid black; 
           } // age
           .text {
+            padding: 0 20px;
             font-size: 14px;
             font-family: 'Open Sans', sans-serif;
           } // text
@@ -102,18 +103,19 @@ body {
             position: absolute;
             clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
             &-first {
-              background: #B08035;
+              background: #222222;
               transform: rotate(15deg);
             } // -first
-            &-reverse {
-              background: #C39849;
+            &-second {
+              background: #4a4a4a;
               transform: rotate(30deg);
             } // -reverse
             &-third {
-              background: #D6B67B;
+              background: #727272;
               transform: rotate(45deg);
             } // -third
             &-fourth {
+              background: #9a9a9a;
               transform: rotate(0deg);
               img {
                 object-fit: cover;

@@ -2451,6 +2451,9 @@ img {
 body, html {
   height: 100%; }
 
+body, .admin-bar .headerBlock {
+  top: 32px; }
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-size: cover;
@@ -2462,6 +2465,7 @@ body {
   visibility: hidden; }
 
 .headerBlock {
+  position: fixed;
   top: 0;
   z-index: 5;
   width: 100%;
@@ -2469,7 +2473,7 @@ body {
   color: white;
   height: 75px; }
   .headerBlock-transparent {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%); }
+    background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 100%); }
     .headerBlock-transparent:hover {
       background: black; }
 
@@ -3693,6 +3697,7 @@ body {
         margin-bottom: 30px;
         border-bottom: 2px solid black; }
       .reviewsBlock .wrapper .reviews .reviewsContainer__item .text {
+        padding: 0 20px;
         font-size: 14px;
         font-family: 'Open Sans', sans-serif; }
       .reviewsBlock .wrapper .reviews .reviewsContainer__item__item {
@@ -3703,15 +3708,16 @@ body {
         position: absolute;
         clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%); }
         .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-first {
-          background: #B08035;
+          background: #222222;
           transform: rotate(15deg); }
-        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-reverse {
-          background: #C39849;
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-second {
+          background: #4a4a4a;
           transform: rotate(30deg); }
         .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-third {
-          background: #D6B67B;
+          background: #727272;
           transform: rotate(45deg); }
         .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth {
+          background: #9a9a9a;
           transform: rotate(0deg); }
           .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth img {
             object-fit: cover;
