@@ -14,7 +14,7 @@ $reviews_posts = get_posts( $args );
 ?>
 
 <section class="reviewsBlock" data-page-url="reviews">
-    <div class="bottomlinebrown" ></div>
+    <div class="pattern" ></div>
     <div class="wrapper">
         <div class="reviews">
             <div class="servicesHeader animate fadeIn wow" data-wow-delay=".1s">
@@ -60,5 +60,5 @@ $reviews_posts = get_posts( $args );
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="bottomlinebrown bottomlinebrown-down" <?php echo $blockTopLine ?>></div>
+    <div class="pattern pattern-down"></div>
 </section>

@@ -3144,12 +3144,12 @@ body {
         font-size: 12px;
         padding: 0 0 20px 0; }
 
-.doubleroundlinebrown {
+.pattern {
   width: 100%;
   height: 41px;
-  background: url(assets/img/doubleroundlinebrown.png);
+  background: url(assets/img/pattern.png);
   background-repeat: repeat-x; }
-  .doubleroundlinebrown-down {
+  .pattern-down {
     transform: rotate(180deg); }
 
 .afterBeforeBlock {
@@ -3418,12 +3418,12 @@ body {
           left: -20%;
           transform: translate(-50%, -100%) rotate(135deg) scaleY(4); }
 
-  .doubleroundlinebrown {
+  .pattern {
     width: 100%;
     height: 41px;
-    background: url(assets/img/doubleroundlinebrown.png);
+    background: url(assets/img/pattern.png);
     background-repeat: repeat-x; }
-    .doubleroundlinebrown-down {
+    .pattern-down {
       transform: rotate(180deg); } }
 @media screen and (max-width: 650px) {
   .afterBeforeBlock {
@@ -3613,117 +3613,119 @@ body {
     left: -20%;
     transform: translate(-50%, -135%) rotate(150deg) scaleY(3); }
 
-  .doubleroundlinebrown-down {
+  .pattern-down {
     padding-top: 110px; } }
-.bottomlinebrown {
+.pattern {
   width: 100%;
   height: 41px;
+  background: url(assets/img/pattern.png);
   background-repeat: repeat-x;
   transform: rotate(180deg); }
-  .bottomlinebrown-down {
+  .pattern-down {
     transform: rotate(0deg); }
 
 .reviewsBlock {
-  font-family: "Cambria";
-  background: #98783c; }
-  .reviewsBlock .wrapper .reviews .servicesHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 0 70px;
-    color: white;
-    flex-direction: column;
-    width: 100%; }
-    .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle {
-      font-weight: normal;
-      font-style: italic;
-      margin: 20px 0;
-      font-size: 18px; }
-      .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle span {
-        color: #222222; }
-    .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle {
+  font-family: "Cambria"; }
+  .reviewsBlock .wrapper .reviews {
+    padding-bottom: 60px; }
+    .reviewsBlock .wrapper .reviews .servicesHeader {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: normal;
-      font-size: 46px;
+      padding: 60px 0 70px;
+      color: white;
+      flex-direction: column;
       width: 100%; }
-      .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle span {
+      .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle {
         font-weight: normal;
-        color: #222222; }
-      .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle:before {
-        margin: 0 25px;
-        content: " ";
-        width: 100%;
-        height: 2px;
-        background: #222222; }
-      .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle:after {
-        margin: 0 25px;
-        content: " ";
-        width: 100%;
-        height: 2px;
-        background: #222222; }
-  .reviewsBlock .wrapper .reviews .reviewsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .reviewsBlock .wrapper .reviews .reviewsContainer-reverse {
-      flex-direction: row-reverse; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer-reverse .reviewsContainer__item-text {
+        font-style: italic;
+        margin: 20px 0;
+        font-size: 18px; }
+        .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle span {
+          color: #222222; }
+      .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle {
         display: flex;
         justify-content: center;
-        align-items: flex-end; }
-        .reviewsBlock .wrapper .reviews .reviewsContainer-reverse .reviewsContainer__item-text .text {
-          text-align: end; }
-    .reviewsBlock .wrapper .reviews .reviewsContainer__item {
+        align-items: center;
+        font-weight: normal;
+        font-size: 46px;
+        width: 100%; }
+        .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle span {
+          font-weight: normal;
+          color: #222222; }
+        .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle:before {
+          margin: 0 25px;
+          content: " ";
+          width: 100%;
+          height: 2px;
+          background: #222222; }
+        .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle:after {
+          margin: 0 25px;
+          content: " ";
+          width: 100%;
+          height: 2px;
+          background: #222222; }
+    .reviewsBlock .wrapper .reviews .reviewsContainer {
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 280px;
-      width: 50%; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item-text {
-        flex-direction: column;
+      align-items: center; }
+      .reviewsBlock .wrapper .reviews .reviewsContainer-reverse {
+        flex-direction: row-reverse; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer-reverse .reviewsContainer__item-text {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end; }
+          .reviewsBlock .wrapper .reviews .reviewsContainer-reverse .reviewsContainer__item-text .text {
+            text-align: end; }
+      .reviewsBlock .wrapper .reviews .reviewsContainer__item {
         display: flex;
         justify-content: center;
-        align-items: flex-start; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item .name h2 {
-        font-size: 21px;
-        font-weight: normal;
-        color: white;
-        margin-bottom: 6px; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item .age {
-        font-size: 16px;
-        width: 50px;
-        margin-bottom: 30px;
-        border-bottom: 2px solid black; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item .text {
-        padding: 0 20px;
-        font-size: 14px;
-        font-family: 'Open Sans', sans-serif; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item__item {
-        position: relative; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer {
-        width: 280px;
+        align-items: center;
         height: 280px;
-        position: absolute;
-        clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%); }
-        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-first {
-          background: #222222;
-          transform: rotate(15deg); }
-        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-second {
-          background: #4a4a4a;
-          transform: rotate(30deg); }
-        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-third {
-          background: #727272;
-          transform: rotate(45deg); }
-        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth {
-          background: #9a9a9a;
-          transform: rotate(0deg); }
-          .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth img {
-            object-fit: cover;
-            object-position: center;
-            width: 100%;
-            height: 100%; }
+        width: 50%; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item-text {
+          flex-direction: column;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item .name h2 {
+          font-size: 21px;
+          font-weight: normal;
+          color: white;
+          margin-bottom: 6px; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item .age {
+          font-size: 16px;
+          width: 50px;
+          margin-bottom: 30px;
+          border-bottom: 2px solid black; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item .text {
+          padding: 0 20px;
+          font-size: 14px;
+          font-family: 'Open Sans', sans-serif; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item__item {
+          position: relative; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer {
+          width: 280px;
+          height: 280px;
+          position: absolute;
+          clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%); }
+          .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-first {
+            background: #222222;
+            transform: rotate(15deg); }
+          .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-second {
+            background: #4a4a4a;
+            transform: rotate(30deg); }
+          .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-third {
+            background: #727272;
+            transform: rotate(45deg); }
+          .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth {
+            background: #9a9a9a;
+            transform: rotate(0deg); }
+            .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth img {
+              object-fit: cover;
+              object-position: center;
+              width: 100%;
+              height: 100%; }
   @media screen and (max-width: 750px) {
     .reviewsBlock .wrapper .reviews .reviewsContainer {
       display: flex;
@@ -3764,21 +3766,23 @@ body {
           .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer-fourth {
             transform: rotate(0deg); } }
   @media screen and (max-width: 500px) {
-    .reviewsBlock .wrapper .reviews .servicesHeader {
-      padding: 0; }
-      .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle {
-        font-size: 14px; }
-      .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle {
-        font-size: 35px; }
-    .reviewsBlock .wrapper .reviews .reviewsContainer__item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      padding: 10px; }
-      .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer {
-        width: 160px;
-        height: 160px; } }
+    .reviewsBlock .wrapper .reviews {
+      padding-bottom: 10px; }
+      .reviewsBlock .wrapper .reviews .servicesHeader {
+        padding: 0; }
+        .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle {
+          font-size: 14px; }
+        .reviewsBlock .wrapper .reviews .servicesHeader .sectionTitle {
+          font-size: 35px; }
+      .reviewsBlock .wrapper .reviews .reviewsContainer__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 10px; }
+        .reviewsBlock .wrapper .reviews .reviewsContainer__item .imgLayer {
+          width: 160px;
+          height: 160px; } }
   @media screen and (max-width: 420px) {
     .reviewsBlock .wrapper .reviews .servicesHeader .sectionSubtitle {
       font-size: 11px;
@@ -3950,12 +3954,12 @@ body {
               font-weight: normal;
               font-size: 12px;
               font-family: 'Open Sans', sans-serif; }
-    .newsBlock .doubleroundlinebrown {
+    .newsBlock .pattern {
       width: 100%;
       height: 41px;
-      background: url(assets/img/doubleroundlinebrown.png);
+      background: url(assets/img/pattern.png);
       background-repeat: repeat-x; }
-      .newsBlock .doubleroundlinebrown-down {
+      .newsBlock .pattern-down {
         padding-top: 50px;
         transform: rotate(180deg); } }
 
@@ -4267,15 +4271,17 @@ body {
 .certificatesBlock {
   font-family: "Cambria";
   background-image: url(assets/img/header-back-layer.png); }
-  .certificatesBlock .wrapper .certificates .servicesHeader .sectionSubtitle {
-    font-weight: normal;
-    font-style: italic;
-    font-size: 18px; }
-    .certificatesBlock .wrapper .certificates .servicesHeader .sectionSubtitle span {
-      font-size: 18px;
-      color: #98783c; }
-  .certificatesBlock .wrapper .certificates .certificatesContent__images .image {
-    padding: 5%; }
+  .certificatesBlock .wrapper .certificates {
+    padding-bottom: 60px; }
+    .certificatesBlock .wrapper .certificates .servicesHeader .sectionSubtitle {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 18px; }
+      .certificatesBlock .wrapper .certificates .servicesHeader .sectionSubtitle span {
+        font-size: 18px;
+        color: #98783c; }
+    .certificatesBlock .wrapper .certificates .certificatesContent__images .image {
+      padding: 5%; }
   @media screen and (max-width: 650px) {
     .certificatesBlock .wrapper .certificates .servicesHeader {
       padding: 20px 0 30px; }

@@ -1,9 +1,10 @@
 body {
   
 } // body
-.bottomlinebrown{
+.pattern{
   width: 100%;
   height: 41px;
+  background: url(assets/img/pattern.png);
   background-repeat: repeat-x;  
   transform: rotate(180deg);
   &-down {
@@ -11,11 +12,10 @@ body {
   } // -down
 }
 .reviewsBlock {
-  .firstColor{}
   font-family: "Cambria";
-  background: $firstColor; 
   .wrapper {
     .reviews {
+      padding-bottom: 60px;
       .servicesHeader {
         @include flex(center,center);
         padding: 60px 0 70px;
@@ -183,6 +183,7 @@ body {
     @media screen and (max-width: 500px) {
     .wrapper {
       .reviews {
+        padding-bottom: 10px;
         .servicesHeader {
           padding: 0;
           .sectionSubtitle {

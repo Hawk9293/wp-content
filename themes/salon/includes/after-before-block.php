@@ -19,7 +19,7 @@ ksort($ab_post_sort);
 ?>
 
 <section class="afterBeforeBlock" data-page-url="before_after">
-    <div class="doubleroundlinebrown doubleroundlinebrown-down" ></div>
+    <div class="pattern" ></div>
     <div class="wrapper">
         <div class="servicesHeader animate fadeIn wow" data-wow-delay=".1s">
             <h2 class="sectionTitle">
@@ -101,5 +101,5 @@ ksort($ab_post_sort);
 	        <?php endforeach ?>
         </div>
     </div>
-    <div class="doubleroundlinebrown" <?php echo $blockBottomLine;?> ></div>
+    <div class="pattern pattern-down"></div>
 </section>

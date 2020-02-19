@@ -3136,12 +3136,12 @@ body {
         font-size: 12px;
         padding: 0 0 20px 0; }
 
-.doubleroundlinebrown {
+.pattern {
   width: 100%;
   height: 41px;
-  background: url(assets/img/doubleroundlinebrown.png);
+  background: url(assets/img/pattern.png);
   background-repeat: repeat-x; }
-  .doubleroundlinebrown-down {
+  .pattern-down {
     transform: rotate(180deg); }
 
 .afterBeforeBlock {
@@ -3420,12 +3420,12 @@ body {
           left: -20%;
           transform: translate(-50%, -100%) rotate(135deg) scaleY(4); }
 
-  .doubleroundlinebrown {
+  .pattern {
     width: 100%;
     height: 41px;
-    background: url(assets/img/doubleroundlinebrown.png);
+    background: url(assets/img/pattern.png);
     background-repeat: repeat-x; }
-    .doubleroundlinebrown-down {
+    .pattern-down {
       transform: rotate(180deg); } }
 @media screen and (max-width: 650px) {
   .afterBeforeBlock {
@@ -3635,14 +3635,14 @@ body {
     left: -20%;
     transform: translate(-50%, -135%) rotate(150deg) scaleY(3); }
 
-  .doubleroundlinebrown-down {
+  .pattern-down {
     padding-top: 110px; } }
-.bottomlinebrown {
+.pattern {
   width: 100%;
   height: 41px;
   background-repeat: repeat-x;
   transform: rotate(180deg); }
-  .bottomlinebrown-down {
+  .pattern-down {
     transform: rotate(0deg); }
 
 .reviewsBlock {
@@ -4023,12 +4023,12 @@ body {
               font-weight: normal;
               font-size: 12px;
               font-family: 'Open Sans', sans-serif; }
-    .newsBlock .doubleroundlinebrown {
+    .newsBlock .pattern {
       width: 100%;
       height: 41px;
-      background: url(assets/img/doubleroundlinebrown.png);
+      background: url(assets/img/pattern.png);
       background-repeat: repeat-x; }
-      .newsBlock .doubleroundlinebrown-down {
+      .newsBlock .pattern-down {
         padding-top: 50px;
         transform: rotate(180deg); } }
 

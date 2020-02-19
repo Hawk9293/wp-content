@@ -328,7 +328,7 @@ CREATE TABLE `mainSettings` (
 --
 
 INSERT INTO `mainSettings` (`id`, `body_bg`, `body_overlay`, `body_overlay_exist`, `top_line`, `bottom_line`) VALUES
-(1, 'header-back.png', 'header-back-layer.png', 1, 'bottom-line-brown.png', 'doubleroundlinebrown.png');
+(1, 'header-back.png', 'header-back-layer.png', 1, 'bottom-line-brown.png', 'pattern.png');
 
 -- --------------------------------------------------------
 
