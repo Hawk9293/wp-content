@@ -10,28 +10,17 @@
 
 require_once __DIR__ . '/functions.php';
 
-add_shortcode('test', 'show_test_info');
+add_shortcode('my_gallery', 'show_my_gallery');
 
-function show_test_info( $params ) {
-
-	$gallery_html = '<div class="gallery">';
-	$gallery_img = '';
-
-	$count = 0;
-
-	foreach ( explode(',', $params['ids']) as $img__id ) {
-		$img = wp_get_attachment_url( $img__id );
-		$gallery_img .=
-			'
-			<div class="gallery__item">
-				<div class="innerImg">
-					<img src="' . $img . '" alt="gallery img">	
-				</div>
-			</div>
-			';
-		$count++;
-	}
-
-	$gallery_html .= $gallery_img . '</div>';
-	return $gallery_html;
+function show_my_gallery( $atts ) {
+    $my_atts = explode(  ',', $atts['ids']);
+    $gallery = '';
+    $html = '<div class="gallery">';
+    foreach ( $my_atts as $imageId ){
+        $gallery .= '<a class="gallery__item" href="' . wp_get_attachment_image_url( $imageId, 'full' ) . '" rel="gallery">'
+                        . wp_get_attachment_image( $imageId, 'full' ) .
+                    '</a>';
+    }
+    $htmlEnd = '</div>';
+    return $html . $gallery . $htmlEnd;
 }

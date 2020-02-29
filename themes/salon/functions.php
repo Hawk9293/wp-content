@@ -24,7 +24,7 @@ function add_scripts(){
     wp_enqueue_script( 'wow-js', ASSETS_PATH . 'js/wow.min.js', array( 'jquery' ), '1.0', true );
     wp_enqueue_script( 'slick', ASSETS_PATH . 'js/slick.js', array( 'jquery' ), '1.0', true );
     wp_enqueue_script( 'main-js', ASSETS_PATH . 'js/main.js', array( 'jquery', 'slick', 'wow-js' ), '1.0', true );
-    wp_localize_script('main-js', 'myAjax' ,array( 'ajaxUrl' => admin_url('admin-ajax.php') ));
+    wp_localize_script('main-js', 'myAjax' , array( 'ajaxUrl' => admin_url('admin-ajax.php') ));
 };
 
 // разрешает миниатюру записи
