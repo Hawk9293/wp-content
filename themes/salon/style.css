@@ -2492,6 +2492,10 @@ body {
         font-size: 25px;
         color: white; }
 
+.headerSpace {
+  height: 75px;
+  width: 100%; }
+
 .wrapper {
   margin: 0 auto;
   max-width: 1300px;
@@ -2564,7 +2568,6 @@ body {
           background-color: rgba(0, 0, 0, 0.6); }
 
 .heroBlock {
-  margin-top: 75px;
   background-image: url(assets/img/header-back-layer.png);
   background-color: rgba(0, 0, 0, 0.1);
   width: 100%; }

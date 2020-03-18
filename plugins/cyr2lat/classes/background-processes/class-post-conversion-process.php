@@ -5,10 +5,14 @@
  * @package cyr-to-lat
  */
 
+namespace Cyr_To_Lat;
+
+use stdClass;
+
 /**
- * Class Cyr_To_Lat_Post_Conversion_Process
+ * Class Post_Conversion_Process
  */
-class Cyr_To_Lat_Post_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
+class Post_Conversion_Process extends Conversion_Process {
 
 	/**
 	 * Site locale.
@@ -32,9 +36,9 @@ class Cyr_To_Lat_Post_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
 	protected $action = CYR_TO_LAT_POST_CONVERSION_ACTION;
 
 	/**
-	 * Cyr_To_Lat_Post_Conversion_Process constructor.
+	 * Post_Conversion_Process constructor.
 	 *
-	 * @param Cyr_To_Lat_Main $main Plugin main class.
+	 * @param Main $main Plugin main class.
 	 */
 	public function __construct( $main ) {
 		parent::__construct( $main );
@@ -54,17 +58,16 @@ class Cyr_To_Lat_Post_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
 		$this->post = $post;
 		$post_name  = urldecode( $post->post_name );
 
-		add_filter( 'locale', array( $this, 'filter_post_locale' ) );
-		$sanitized_name = sanitize_title( $post_name );
-		remove_filter( 'locale', array( $this, 'filter_post_locale' ) );
+		add_filter( 'locale', [ $this, 'filter_post_locale' ] );
+		$transliterated_name = $this->main->transliterate( $post_name );
+		remove_filter( 'locale', [ $this, 'filter_post_locale' ] );
 
-		if ( urldecode( $sanitized_name ) !== $post_name ) {
+		if ( $transliterated_name !== $post_name ) {
 			update_post_meta( $post->ID, '_wp_old_slug', $post_name );
-			// phpcs:disable WordPress.DB.DirectDatabaseQuery
-			$wpdb->update( $wpdb->posts, array( 'post_name' => $sanitized_name ), array( 'ID' => $post->ID ) );
-			// phpcs:enable
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery
+			$wpdb->update( $wpdb->posts, [ 'post_name' => rawurlencode( $transliterated_name ) ], [ 'ID' => $post->ID ] );
 
-			$this->log( __( 'Post slug converted:', 'cyr2lat' ) . ' ' . $post_name . ' => ' . urldecode( $sanitized_name ) );
+			$this->log( __( 'Post slug converted:', 'cyr2lat' ) . ' ' . $post_name . ' => ' . $transliterated_name );
 		}
 
 		return false;

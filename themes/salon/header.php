@@ -20,7 +20,6 @@ $background = get_field('main_background','option');
 <!doctype html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -104,7 +103,6 @@ $background = get_field('main_background','option');
             color: <?php echo $colors['second']?>;
         }
     </style>
-
 </head>
 <body data-page-url="main" <?php body_class();?>> <!-- http://bellavita.kiev.ua/ -->
 <header class="headerBlock" data-ajax="<?php echo admin_url('admin-ajax.php');?>">
@@ -139,6 +137,8 @@ $background = get_field('main_background','option');
                 <?php wp_nav_menu( $menu_args );?>
 			</nav>
 		</div>
+
 	</div>
 </header>
+<div class="headerSpace"></div>
 

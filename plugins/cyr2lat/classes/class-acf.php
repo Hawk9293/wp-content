@@ -5,22 +5,24 @@
  * @package cyr-to-lat
  */
 
+namespace Cyr_To_Lat;
+
 /**
- * Class Cyr_To_Lat_ACF
+ * Class ACF
  */
-class Cyr_To_Lat_ACF {
+class ACF {
 
 	/**
 	 * Plugin settings.
 	 *
-	 * @var Cyr_To_Lat_Settings
+	 * @var Settings
 	 */
 	private $settings;
 
 	/**
-	 * Cyr_To_Lat_ACF constructor.
+	 * ACF constructor.
 	 *
-	 * @param Cyr_To_Lat_Settings $settings Plugin settings.
+	 * @param Settings $settings Plugin settings.
 	 */
 	public function __construct( $settings ) {
 		$this->settings = $settings;
@@ -32,7 +34,7 @@ class Cyr_To_Lat_ACF {
 	 * Init class hooks.
 	 */
 	public function init_hooks() {
-		add_action( 'acf/field_group/admin_enqueue_scripts', array( $this, 'enqueue_script' ) );
+		add_action( 'acf/field_group/admin_enqueue_scripts', [ $this, 'enqueue_script' ] );
 	}
 
 	/**
@@ -44,14 +46,12 @@ class Cyr_To_Lat_ACF {
 		wp_enqueue_script(
 			'cyr-to-lat-acf-field-group',
 			CYR_TO_LAT_URL . '/js/acf-field-group.js',
-			array(),
+			[],
 			CYR_TO_LAT_VERSION,
 			true
 		);
 
-		$object = array(
-			'table' => $table,
-		);
+		$object = [ 'table' => $table ];
 
 		wp_localize_script( 'cyr-to-lat-acf-field-group', 'CyrToLatAcfFieldGroup', $object );
 	}

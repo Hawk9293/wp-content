@@ -5,10 +5,14 @@
  * @package cyr-to-lat
  */
 
+namespace Cyr_To_Lat;
+
+use stdClass;
+
 /**
- * Class Cyr_To_Lat_Term_Conversion_Process
+ * Class Term_Conversion_Process
  */
-class Cyr_To_Lat_Term_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
+class Term_Conversion_Process extends Conversion_Process {
 
 	/**
 	 * Site locale.
@@ -32,9 +36,9 @@ class Cyr_To_Lat_Term_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
 	protected $action = CYR_TO_LAT_TERM_CONVERSION_ACTION;
 
 	/**
-	 * Cyr_To_Lat_Term_Conversion_Process constructor.
+	 * Term_Conversion_Process constructor.
 	 *
-	 * @param Cyr_To_Lat_Main $main Plugin main class.
+	 * @param Main $main Plugin main class.
 	 */
 	public function __construct( $main ) {
 		parent::__construct( $main );
@@ -54,16 +58,15 @@ class Cyr_To_Lat_Term_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
 		$this->term = $term;
 		$slug       = urldecode( $term->slug );
 
-		add_filter( 'locale', array( $this, 'filter_term_locale' ) );
-		$sanitized_slug = sanitize_title( $slug );
-		remove_filter( 'locale', array( $this, 'filter_term_locale' ) );
+		add_filter( 'locale', [ $this, 'filter_term_locale' ] );
+		$transliterated_slug = $this->main->transliterate( $slug );
+		remove_filter( 'locale', [ $this, 'filter_term_locale' ] );
 
-		if ( urldecode( $sanitized_slug ) !== $slug ) {
-			// phpcs:disable WordPress.DB.DirectDatabaseQuery
-			$wpdb->update( $wpdb->terms, array( 'slug' => $sanitized_slug ), array( 'term_id' => $term->term_id ) );
-			// phpcs:enable
+		if ( $transliterated_slug !== $slug ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery
+			$wpdb->update( $wpdb->terms, [ 'slug' => rawurlencode( $transliterated_slug ) ], [ 'term_id' => $term->term_id ] );
 
-			$this->log( __( 'Term slug converted:', 'cyr2lat' ) . ' ' . $slug . ' => ' . urldecode( $sanitized_slug ) );
+			$this->log( __( 'Term slug converted:', 'cyr2lat' ) . ' ' . $slug . ' => ' . $transliterated_slug );
 		}
 
 		return false;
@@ -84,10 +87,10 @@ class Cyr_To_Lat_Term_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
 	 * @return string
 	 */
 	public function filter_term_locale() {
-		$args = array(
+		$args = [
 			'element_type' => $this->term->taxonomy,
 			'element_id'   => $this->term->term_taxonomy_id,
-		);
+		];
 
 		$wpml_element_language_details = apply_filters( 'wpml_element_language_details', false, $args );
 
@@ -97,7 +100,7 @@ class Cyr_To_Lat_Term_Conversion_Process extends Cyr_To_Lat_Conversion_Process {
 
 		$language_code = $wpml_element_language_details->language_code;
 
-		$wpml_active_languages = apply_filters( 'wpml_active_languages', false, array() );
+		$wpml_active_languages = apply_filters( 'wpml_active_languages', false, [] );
 
 		return isset( $wpml_active_languages[ $language_code ]['default_locale'] ) ?
 			$wpml_active_languages[ $language_code ]['default_locale'] : $this->locale;

@@ -5,12 +5,16 @@
  * @package cyr-to-lat
  */
 
+namespace Cyr_To_Lat;
+
+use wpdb;
+use Exception;
 use Cyr_To_Lat\Symfony\Polyfill\Mbstring\Mbstring;
 
 /**
- * Class Cyr_To_Lat_Main
+ * Class Main
  */
-class Cyr_To_Lat_Main {
+class Main {
 
 	/**
 	 * Regex of prohibited chars in slugs
@@ -23,60 +27,60 @@ class Cyr_To_Lat_Main {
 	/**
 	 * Plugin settings.
 	 *
-	 * @var Cyr_To_Lat_Settings
+	 * @var Settings
 	 */
-	private $settings;
+	protected $settings;
 
 	/**
 	 * Converter instance.
 	 *
-	 * @var Cyr_To_Lat_Converter
+	 * @var Converter
 	 */
-	private $converter;
+	protected $converter;
 
 	/**
-	 * Cyr_To_Lat_WP_CLI instance.
+	 * WP_CLI instance.
 	 *
-	 * @var Cyr_To_Lat_WP_CLI
+	 * @var WP_CLI
 	 */
-	private $cli;
+	protected $cli;
 
 	/**
-	 * Cyr_To_Lat_ACF instance.
+	 * ACF instance.
 	 *
-	 * @var Cyr_To_Lat_ACF
+	 * @var ACF
 	 */
-	private $acf;
+	protected $acf;
 
 	/**
-	 * Cyr_To_Lat_Main constructor.
+	 * Main constructor.
 	 *
-	 * @param Cyr_To_Lat_Settings  $settings  Plugin settings.
-	 * @param Cyr_To_Lat_Converter $converter Converter instance.
-	 * @param Cyr_To_Lat_WP_CLI    $cli       CLI instance.
-	 * @param Cyr_To_Lat_ACF       $acf       ACF instance.
+	 * @param Settings  $settings  Plugin settings.
+	 * @param Converter $converter Converter instance.
+	 * @param WP_CLI    $cli       CLI instance.
+	 * @param ACF       $acf       ACF instance.
 	 */
 	public function __construct( $settings = null, $converter = null, $cli = null, $acf = null ) {
 		$this->settings = $settings;
 		if ( ! $this->settings ) {
-			$this->settings = new Cyr_To_Lat_Settings();
+			$this->settings = new Settings();
 		}
 
 		$this->converter = $converter;
 		if ( ! $this->converter ) {
-			$this->converter = new Cyr_To_Lat_Converter( $this, $this->settings );
+			$this->converter = new Converter( $this, $this->settings );
 		}
 
 		$this->cli = $cli;
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			if ( ! $this->cli ) {
-				$this->cli = new Cyr_To_Lat_WP_CLI( $this->converter );
+				$this->cli = new WP_CLI( $this->converter );
 			}
 		}
 
 		$this->acf = $acf;
 		if ( ! $this->acf ) {
-			$this->acf = new Cyr_To_Lat_ACF( $this->settings );
+			$this->acf = new ACF( $this->settings );
 		}
 
 		$this->init();
@@ -93,7 +97,7 @@ class Cyr_To_Lat_Main {
 				 *
 				 * @noinspection PhpParamsInspection
 				 */
-				WP_CLI::add_command( 'cyr2lat', $this->cli );
+				\WP_CLI::add_command( 'cyr2lat', $this->cli );
 			} catch ( Exception $e ) {
 				return;
 			}
@@ -106,9 +110,9 @@ class Cyr_To_Lat_Main {
 	 * Init class hooks.
 	 */
 	public function init_hooks() {
-		add_filter( 'sanitize_title', array( $this, 'ctl_sanitize_title' ), 9, 3 );
-		add_filter( 'sanitize_file_name', array( $this, 'ctl_sanitize_filename' ), 10, 2 );
-		add_filter( 'wp_insert_post_data', array( $this, 'ctl_sanitize_post_name' ), 10, 2 );
+		add_filter( 'sanitize_title', [ $this, 'ctl_sanitize_title' ], 9, 3 );
+		add_filter( 'sanitize_file_name', [ $this, 'ctl_sanitize_filename' ], 10, 2 );
+		add_filter( 'wp_insert_post_data', [ $this, 'ctl_sanitize_post_name' ], 10, 2 );
 	}
 
 	/**
@@ -141,7 +145,7 @@ class Cyr_To_Lat_Main {
 
 		$is_term = false;
 		// phpcs:disable WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
-		$backtrace = debug_backtrace( ~ DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS );
+		$backtrace = debug_backtrace( ~DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS );
 		// phpcs:enable
 		foreach ( $backtrace as $backtrace_entry ) {
 			if ( 'wp_insert_term' === $backtrace_entry['function'] ) {
@@ -179,11 +183,7 @@ class Cyr_To_Lat_Main {
 		}
 
 		if ( seems_utf8( $filename ) ) {
-			if ( function_exists( 'mb_strtolower' ) ) {
-				$filename = mb_strtolower( $filename, 'UTF-8' );
-			} else {
-				$filename = Mbstring::mb_strtolower( $filename );
-			}
+			$filename = mb_strtolower( $filename );
 		}
 
 		return $this->transliterate( $filename );
@@ -198,7 +198,7 @@ class Cyr_To_Lat_Main {
 	 */
 	private function fix_mac_string( $string ) {
 		$table     = $this->get_filtered_table();
-		$fix_table = Cyr_To_Lat_Conversion_Tables::get_fix_table_for_mac();
+		$fix_table = Conversion_Tables::get_fix_table_for_mac();
 
 		$fix = [];
 		foreach ( $fix_table as $key => $value ) {
@@ -208,6 +208,33 @@ class Cyr_To_Lat_Main {
 		}
 
 		return strtr( $string, $fix );
+	}
+
+	/**
+	 * Split Chinese string by hyphens.
+	 *
+	 * @param string $string String.
+	 * @param array  $table  Conversion table.
+	 *
+	 * @return string
+	 */
+	protected function split_chinese_string( $string, $table ) {
+		if ( ! $this->settings->is_chinese_locale() || mb_strlen( $string ) < 4 ) {
+			return $string;
+		}
+
+		$chars  = Mbstring::mb_str_split( $string );
+		$string = '';
+
+		foreach ( $chars as $char ) {
+			if ( isset( $table[ $char ] ) ) {
+				$string .= '-' . $char . '-';
+			} else {
+				$string .= $char;
+			}
+		}
+
+		return $string;
 	}
 
 	/**
@@ -226,10 +253,11 @@ class Cyr_To_Lat_Main {
 	 *
 	 * @return string
 	 */
-	private function transliterate( $string ) {
+	public function transliterate( $string ) {
 		$table = $this->get_filtered_table();
 
 		$string = $this->fix_mac_string( $string );
+		$string = $this->split_chinese_string( $string, $table );
 		$string = strtr( $string, $table );
 
 		if ( function_exists( 'iconv' ) ) {
@@ -250,6 +278,9 @@ class Cyr_To_Lat_Main {
 	private function ctl_is_classic_editor_plugin_active() {
 		if ( ! function_exists( 'is_plugin_active' ) ) {
 			// @codeCoverageIgnoreStart
+			/**
+			 * Do not inspect include path.
+			 */
 			include_once ABSPATH . 'wp-admin/includes/plugin.php';
 			// @codeCoverageIgnoreEnd
 		}
@@ -279,7 +310,7 @@ class Cyr_To_Lat_Main {
 
 		if ( $this->ctl_is_classic_editor_plugin_active() ) {
 			$editor_option       = get_option( 'classic-editor-replace' );
-			$block_editor_active = array( 'no-replace', 'block' );
+			$block_editor_active = [ 'no-replace', 'block' ];
 
 			return in_array( $editor_option, $block_editor_active, true );
 		}
@@ -295,21 +326,14 @@ class Cyr_To_Lat_Main {
 	 *
 	 * @return mixed
 	 */
-	public function ctl_sanitize_post_name( $data, $postarr = array() ) {
-		global $current_screen;
-
+	public function ctl_sanitize_post_name( $data, $postarr = [] ) {
 		if ( ! $this->ctl_is_gutenberg_editor_active() ) {
-			return $data;
-		}
-
-		// Run code only on post edit screen.
-		if ( ! ( $current_screen && 'post' === $current_screen->base ) ) {
 			return $data;
 		}
 
 		if (
 			! $data['post_name'] && $data['post_title'] &&
-			! in_array( $data['post_status'], array( 'auto-draft', 'revision' ), true )
+			! in_array( $data['post_status'], [ 'auto-draft', 'revision' ], true )
 		) {
 			$data['post_name'] = sanitize_title( $data['post_title'] );
 		}

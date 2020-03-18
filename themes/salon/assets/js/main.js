@@ -23,11 +23,30 @@ jQuery(function ($) {
 
     $('.menu').click(function () {
         burger.toggleBurger();
+        $(document).mouseup(function (e) { // событие клика по веб-документу
+            if (!$(".nav").is(e.target) && $(".nav").has(e.target).length === 0) {
+                burger.hideBurger();
+            } else if ( $(".menu").click(function () {
+                burger.hideBurger();
+            })){
+
+            }
+        });
     });
 
     $('.nav__link').click(function () {
         const url = $(this).find('a').attr('href');
         const link = url.split('#')[1];
+        const currUrl = location.hash;
+        const currOrigin = location.origin;
+        const currPathname = location.pathname;
+
+        console.log(currUrl, currOrigin, currPathname);
+        if( currPathname !== '/' ){
+            location = currOrigin + url;
+        } else {
+            history.pushState(null,null, url);scrollTo( link );
+        }
         scrollTo( link );
     });
 
@@ -147,13 +166,13 @@ jQuery(function ($) {
     }; // successBlock - сообщение об удачной отправке
     function Burger(burger) {
         this.burger = burger;
-
         let burgerUl = $(this.burger);
 
         burgerUl.hide();
-
+        this.hideBurger = function () {
+            burgerUl.hide();
+        }
         this.toggleBurger = function () {
-            console.log('toggle');
             burgerUl.slideToggle()
         } 
     } // Burger - конструктор объекта бургер меню
